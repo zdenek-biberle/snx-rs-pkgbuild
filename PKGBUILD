@@ -1,6 +1,6 @@
 # Maintainer: Zdeněk Biberle <zdenek at biberle dot net>
 pkgname=snx-rs
-pkgver=1.0.0
+pkgver=2.0.2
 pkgrel=1
 pkgdesc="Rust client for Checkpoint VPN tunnels"
 arch=(x86_64)
@@ -12,7 +12,7 @@ source=(
   "$pkgname-$pkgver.tar.gz::https://github.com/ancwrd1/$pkgname/archive/refs/tags/$pkgver.tar.gz"
   fix-executable-path.patch
 )
-sha256sums=('3226a25201ab39ed0ade2d59093b77f56b42454075a642625ffbccc507103ad5'
+sha256sums=('ec9b8e1c0202ef3bbfe82f4ff22bf1b382c232be12adbf697168c7e722e977be'
             'c4438f1167b76cc278610faacdd6d821e21a9339dd12fd86bf5c27f6af66424d')
 
 prepare() {
@@ -26,17 +26,17 @@ build() {
   cd "$pkgname-$pkgver"
   export RUSTUP_TOOLCHAIN=stable
   export CARGO_TARGET_DIR=target
-  cargo build --frozen --release --features tray-icon
+  cargo build --frozen --release
 }
 
 check() {
   cd "$pkgname-$pkgver"
   export RUSTUP_TOOLCHAIN=stable
-  cargo test --frozen --features tray-icon
+  cargo test --frozen
 }
 
 package() {
   cd "$pkgname-$pkgver"
-  install -Dm0755 -t "$pkgdir/usr/bin/" target/release/{snx-rs,snxctl}
+  install -Dm0755 -t "$pkgdir/usr/bin/" target/release/{snx-rs,snxctl,snx-rs-gui}
   install -Dm0644 -t "$pkgdir/usr/lib/systemd/system/" assets/snx-rs.service
 }
