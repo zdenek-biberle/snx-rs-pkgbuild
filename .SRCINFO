@@ -11,6 +11,7 @@ pkgbase = snx-rs
 	depends = openssl
 	depends = systemd
 	depends = iproute2
+	depends = webkit2gtk-4.1
 	source = snx-rs-2.2.4.tar.gz::https://github.com/ancwrd1/snx-rs/archive/refs/tags/v2.2.4.tar.gz
 	source = fix-executable-path.patch
 	sha256sums = 2a7d4d8ec40f470a43ef2eab22be4aa949340c5e46d53636f3c485b696e46f43

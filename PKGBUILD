@@ -6,7 +6,7 @@ pkgdesc="Rust client for Checkpoint VPN tunnels"
 arch=(x86_64)
 url=https://github.com/ancwrd1/snx-rs
 license=(AGPL-3.0)
-depends=(gcc-libs glibc openssl systemd iproute2)
+depends=(gcc-libs glibc openssl systemd iproute2 webkit2gtk-4.1)
 makedepends=(cargo)
 source=(
   "$pkgname-$pkgver.tar.gz::https://github.com/ancwrd1/$pkgname/archive/refs/tags/v$pkgver.tar.gz"
