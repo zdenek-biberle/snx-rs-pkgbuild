@@ -1,7 +1,7 @@
 # Maintainer: Zdeněk Biberle <zdenek at biberle dot net>
 pkgname=snx-rs
-pkgver=2.7.2
-pkgrel=2
+pkgver=2.8.0
+pkgrel=1
 pkgdesc="Rust client for Checkpoint VPN tunnels"
 arch=(x86_64)
 url=https://github.com/ancwrd1/snx-rs
@@ -14,7 +14,7 @@ source=(
   fix-executable-path.patch
   fix-desktop-file.patch
 )
-sha256sums=('664111b51e44cf6c3de1ac849d6bd9840fa4361302ddb598c1d6f3e7746f3fab'
+sha256sums=('41ce2028e391ade043c6bf3a7a36977da989bea057db9365319423ce9eaaf89b'
             'c4438f1167b76cc278610faacdd6d821e21a9339dd12fd86bf5c27f6af66424d'
             'babd0692e40b03eab9e69696b7a9c8b5ebdca5f77e3de9209378a70af524820e')
 _icon_sizes=(16 20 22 24 32 36 40 48 64 72 96 128 192 256)
@@ -60,7 +60,6 @@ package() {
   install -Dm0644 -t "$pkgdir/usr/lib/systemd/system/" assets/snx-rs.service
   install -Dm0644 -t "$pkgdir/usr/share/applications/" assets/snx-rs-gui.desktop
   for size in "${_icon_sizes[@]}" ; do
-    echo install $size
     install -Dm0644 -T "assets/icons/$size.png" "$pkgdir/usr/share/icons/hicolor/${size}x$size/apps/snx-rs-gui.png"
   done
 }
